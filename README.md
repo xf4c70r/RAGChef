@@ -1,2 +1,2 @@
 # RAGChef
-A RAG basedrecipe generator
+A RAG based recipe generator
