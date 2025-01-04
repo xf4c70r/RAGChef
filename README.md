@@ -57,7 +57,7 @@ cd RAGChef
 pip install -r requirements.txt
 ```
 
-Setup the VectorDB
+Initialize the VectorDB (Only needs to be done once)
 ```
 python vectorDB.py
 ```
