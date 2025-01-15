@@ -6,17 +6,15 @@ An intelligent recipe assistant powered by DeepSeek AI and Pinecone vector datab
 Dataset used: https://www.kaggle.com/datasets/sooryaprakash12/cleaned-indian-recipes-dataset?resource=download
 
 
-
+Note: To run this project, you need to have access to the Llama 3 8B model via Hugging Face. Please ensure you have access permissions to use this model.
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
 
 `PINECONE_API_KEY`
 
-`DEEPSEEK_API_KEY`
-
-
-##  Steps For Adding 'PINECONE_API_KEY' and 'DEEPSEEK_API_KEY' To Your Environment Variables
+`HF_TOKEN`
+##  Steps For Adding 'PINECONE_API_KEY' and 'HF_TOKEN' To Your Environment Variables
 
 Windows: 
 
@@ -42,7 +40,7 @@ macOS:
 
 6.  Verify the setup by typing echo $PINECONE_API_KEY in the terminal. It should display your API key.
 
-Follow the same procedure for 'DEEPSEEK_API_KEY'
+Follow the same procedure for 'HF_TOKEN'
 ## Run Locally
 
 Clone the repo
@@ -54,10 +52,17 @@ git clone https://github.com/xf4c70r/RAGChef.git
 Install dependencies 
 ```
 cd RAGChef
+```
+```
+cd Llama
+```
+
+Install dependencies 
+```
 pip install -r requirements.txt
 ```
 
-Initialize the VectorDB (Only needs to be done once)
+Setup the VectorDB (Just need to do it once)
 ```
 python vectorDB.py
 ```
@@ -66,3 +71,7 @@ Run the app
 ```
 streamlit run app.py
 ```
+## Demo
+
+
+
