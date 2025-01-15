@@ -5,8 +5,6 @@ An intelligent recipe assistant powered by DeepSeek AI and Pinecone vector datab
 
 Dataset used: https://www.kaggle.com/datasets/sooryaprakash12/cleaned-indian-recipes-dataset?resource=download
 
-
-
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
@@ -14,8 +12,6 @@ To run this project, you will need to add the following environment variables to
 `PINECONE_API_KEY`
 
 `DEEPSEEK_API_KEY`
-
-
 ##  Steps For Adding 'PINECONE_API_KEY' and 'DEEPSEEK_API_KEY' To Your Environment Variables
 
 Windows: 
@@ -54,10 +50,17 @@ git clone https://github.com/xf4c70r/RAGChef.git
 Install dependencies 
 ```
 cd RAGChef
+```
+```
+cd DeepSeek
+```
+
+Install dependencies 
+```
 pip install -r requirements.txt
 ```
 
-Initialize the VectorDB (Only needs to be done once)
+Setup the VectorDB (Just need to do it once)
 ```
 python vectorDB.py
 ```
@@ -66,3 +69,7 @@ Run the app
 ```
 streamlit run app.py
 ```
+## Demo
+
+
+
