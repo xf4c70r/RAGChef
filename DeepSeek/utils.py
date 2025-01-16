@@ -3,10 +3,9 @@ from pinecone import Pinecone
 import os
 
 def query_recipes(user_query, model=SentenceTransformer('all-MiniLM-L6-v2')):
-    api_key = os.getenv("PINECONE_API_KEY")
-    pc = Pinecone(api_key=api_key)
+    pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
     index = pc.Index("recipe-index")
-    print(api_key)
+    
     query_embedding = model.encode(user_query)
     results = index.query(
         vector=query_embedding.tolist(),
@@ -15,6 +14,21 @@ def query_recipes(user_query, model=SentenceTransformer('all-MiniLM-L6-v2')):
     )
     metadata_list = [match["metadata"] for match in results.get("matches", [])]
     return metadata_list
+
+
+def query_deepseekv3(client, user_input, context):
+    messages = [
+        {"role": "system", "content": "You are a helpful recipe assistant..."},
+        {"role": "user", "content": user_input},
+        {"role": "assistant", "content": f"Here are the details I found:\n{context}"}
+    ]
+    response = client.chat.completions.create(
+        model="deepseek-chat",
+        messages=messages,
+        stream=False
+    )
+    return response.choices[0].message.content
+
 
 def build_context(metadata_list):
     """Build context string from recipe metadata"""
